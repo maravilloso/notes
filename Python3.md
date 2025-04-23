@@ -166,6 +166,16 @@ deque([4, 3, 1, 2])
 >>> q.popleft()
 4
 ```
+## Speed up by using ``@cache`` decorator
+Whenever you have an asumed expensive calculation:
+```python
+from functools import cache
+
+@cache
+def fib(n):
+    return n if n < 2 else fib(n-1) + fib(n-2)
+```
+
 ## Iterating on Tuples
 Unpacking can be used when iterating collections of tuples, even using the "throwaway" value:
 ```python
