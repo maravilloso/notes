@@ -24,17 +24,12 @@ pip install --user file.egg
 ## Formatted Printing
 f-strings:
 ```python
-print(f'{name:>10s} {shares:>10d} {price:>10.2f}')
-```
-
-``.format()`` method:
-```python
 print(f"{' [ Run Status ] ':=^50}")
 print(f"[{time:%H:%M:%S}] Training Run {run_id=} status: {progress:.1%}")
 print(f"Summary: {total_samples:,} samples processed")
 print(f"Accuracy: {accuracy:.4f} | Loss: {loss:#.3g}")
 print(f"Memory: {memory / 1e9:+.2f} GB")
-print('{:10s} {:10d} {:10.2f}'.format(name,shares,price))
+print(f'{name:>10s} {shares:>10d} {price:>10.2f}')
 ```
 Example output:
 ```txt
@@ -44,6 +39,11 @@ Summary: 12,345,678 samples processed
 Accuracy: 0.9876 | Loss: 0.0123
 Memory: +2.75 GB
     Marcos       1234     567.89
+```
+
+With ``.format()`` method:
+```python
+print('{:10s} {:10d} {:10.2f}'.format(name,shares,price))
 ```
 
 Use % operator:
