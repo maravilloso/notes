@@ -233,3 +233,11 @@ Generators can only be consumed once:
 >>>
 # notice no output (spent)
 ```
+## Walrus operator
+Really useful for using a value right after checking if it is not None!
+```python
+if response := get_user_input():
+    print('You pressed:', response)
+else:
+    print('You pressed nothing')
+```
