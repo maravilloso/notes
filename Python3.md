@@ -167,7 +167,7 @@ deque([4, 3, 1, 2])
 4
 ```
 ## Speed up by using ``@cache`` decorator
-Whenever you have an asumed expensive calculation:
+Whenever you have an assumed expensive calculation:
 ```python
 from functools import cache
 
@@ -264,4 +264,87 @@ if response := get_user_input():
     print('You pressed:', response)
 else:
     print('You pressed nothing')
+```
+## Structural Pattern Matching
+Allows for more expressive and readable ways to match patterns and deconstruct data
+```python
+def handle_data(data):
+    match data:
+        # Match a literal value
+        case 42:
+            print("Matched the number 42!")
+
+        # Match a variable with a guard
+        case x if x > 100:
+            print(f"Matched a number greater than 100: {x}")
+
+        # Match a tuple with specific values
+        case (1, 2, 3):
+            print("Matched the tuple (1, 2, 3)")
+
+        # Match a tuple with a wildcard
+        case (1, _, _):
+            print("Matched a tuple starting with 1")
+
+        # Match a list with specific length
+        case [1, 2, 3, *_]:
+            print("Matched a list starting with [1, 2, 3]")
+
+        # Match a dictionary with specific keys
+        case {"name": name, "age": age}:
+            print(f"Matched a dictionary with name={name} and age={age}")
+
+        # Match an instance of a class
+        case MyClass(attr1=x, attr2=y):
+            print(f"Matched an instance of MyClass with attr1={x} and attr2={y}")
+
+        # Match a nested structure
+        case {"user": {"name": name, "age": age}, "status": status}:
+            print(f"Matched nested structure: name={name}, age={age}, status={status}")
+
+        # Match enums
+        case Status.ACTIVE:
+            print("Matched an active status!")
+
+        # Match with OR patterns
+        case 0 | 1 | 2:
+            print("Matched one of the values: 0, 1, or 2")
+
+        # Match with AS patterns
+        case [x, y, z] as full_list:
+            print(f"Matched a list: {full_list} with elements {x}, {y}, {z}")
+
+        # Match a class with type guards
+        case int() if data % 2 == 0:
+            print(f"Matched an even integer: {data}")
+
+        # Default case (wildcard)
+        case _:
+            print("Matched something else!")
+
+# Define a custom class for matching
+class MyClass:
+    def __init__(self, attr1, attr2):
+        self.attr1 = attr1
+        self.attr2 = attr2
+
+# Define an enum for matching
+from enum import Enum
+
+class Status(Enum):
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+
+# Test the function with various inputs
+handle_data(42)
+handle_data(150)
+handle_data((1, 2, 3))
+handle_data([1, 2, 3, 4, 5])
+handle_data({"name": "Alice", "age": 30})
+handle_data(MyClass(attr1="value1", attr2="value2"))
+handle_data({"user": {"name": "Bob", "age": 25}, "status": "online"})
+handle_data(Status.ACTIVE)
+handle_data([10, 20, 30])
+handle_data(4)
+handle_data("unexpected")
 ```
