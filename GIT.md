@@ -24,6 +24,10 @@ GIT
 	packSizeLimit = 4095m
 	windowMemory = 4095m
 ```
+- Ignorar ficheros que ya están manejados por GIT (i.e.: already commited)
+```shell
+git update-index --skip-worktree **/.classpath **/**/.classpath axpomdm-jar/.settings/org.eclipse.jdt.core.prefs
+```
 
 - Clonar solo cierta rama desde remoto:
 
