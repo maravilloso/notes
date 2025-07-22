@@ -163,6 +163,11 @@ git update-index --skip-worktree **/.classpath **/**/.classpath axpomdm-jar/.set
   git push --set-upstream origin <RAMA>
 ```
 
+- Deshacer el último merge desde otra rama (cuando dicho merge fué la última operación)
+```shell
+  git reset --hard HEAD~1
+```
+
 - Renombrar rama (tanto en local como en remoto)
 ```shell
 # Names of things - allows you to copy/paste commands
