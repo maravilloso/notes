@@ -10,6 +10,12 @@ ffmpeg
 ```shell
   for %%a in ("*.avi") do ffmpeg -i "%%a" -c:v libx265 -vtag hvc1 "%%~na.mp4"
 ```
+- Leverage the graphics card to accelerate conversion into HEVC video:
+```shell
+  # AMD Radeon
+  ffmpeg -i input.mp4 -c:v hevc_amf -rc cqp -qp_i 24 -qp_p 24 output.mp4
+  # For Intel ones use hevc_qsv instead
+```
 - To simply concatenate 3 videos which have the same codec into a single one, first create a `mylist.txt` containing:
 ```
   file 'video1.mp4'
