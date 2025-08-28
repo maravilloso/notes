@@ -32,7 +32,7 @@ git update-index --skip-worktree **/.classpath **/**/.classpath axpomdm-jar/.set
 - Clonar solo cierta rama desde remoto:
 
 ```shell
-  git clone -b rama --single-branch https://...git
+  git clone -b rama --single-branch https://…git
 ```
 
 - Afrontar el error "fatal: early EOF" al clonar repositorios muy grandes o con mala conexión de red, haciéndolo en varios pasos:
@@ -47,7 +47,7 @@ git update-index --skip-worktree **/.classpath **/**/.classpath axpomdm-jar/.set
 - Incluir en un commit todos los ficheros cambiados de una vez:
 
 ```shell
-  git commit -a -m " ... comentario ..."
+  git commit -a -m " … comentario …"
 ```
 
 - Corregir el comentario del último commit (solo si aún no se ha hecho push)
@@ -157,9 +157,9 @@ git update-index --skip-worktree **/.classpath **/**/.classpath axpomdm-jar/.set
 ```shell
   git checkout -b <RAMA>
   git pull origin <RAMA>
-  ...
+  …
   # Specify a reason for the merge
-  ...
+  …
   git push --set-upstream origin <RAMA>
 ```
 
