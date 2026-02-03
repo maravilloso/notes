@@ -34,10 +34,18 @@ RemotePort       : 5672
 InterfaceAlias   : Ethernet
 SourceAddress    : 10.54.187.125
 TcpTestSucceeded : True
-
 ```
 
 - Find your public IP address
 ```shell
   (Invoke-RestMethod ipinfo.io/json).ip
+```
+
+- Interacting with the Clipboard
+```shell
+  # Copy the output of any command to the clipboard
+  dir tmp* | clip
+
+  # Getting the contents of the clipboard and display it to the command-line:
+  Get-Clipboard
 ```
