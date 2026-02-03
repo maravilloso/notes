@@ -20,3 +20,8 @@ PS H:\> Get-WmiObject Win32_VideoController | Select-Object Name, AdapterCompati
     "VideoProcessor":  "Intel(R) Iris(R) Xe Graphics Family"
 }
 ```
+
+- Check whether a remote machine port is reachable & open to connect:
+```shell
+PS H:\> Test-NetConnection -ComputerName subdn058.prod.axponet.ch -Port 5672
+```

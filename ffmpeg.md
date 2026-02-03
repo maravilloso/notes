@@ -29,7 +29,7 @@ ffmpeg
 ```shell
   ffmpeg -i "concat:VTS_01_1.VOB|VTS_01_2.VOB|VTS_01_3.VOB|VTS_01_4.VOB|VTS_01_5.VOB" outfile.mp4
 ```
-- Just copy a fragment of the movie without re-encding anything
+- Just copy a fragment of the movie without re-encoding anything
 ```shell
 ffmpeg -i input.mp4 -ss 00:22:32 -to 00:25:42 -acodec copy -vcodec copy clip.mp4
 ```
