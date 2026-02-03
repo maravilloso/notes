@@ -23,5 +23,21 @@ PS H:\> Get-WmiObject Win32_VideoController | Select-Object Name, AdapterCompati
 
 - Check whether a remote machine port is reachable & open to connect:
 ```shell
-PS H:\> Test-NetConnection -ComputerName subdn058.prod.axponet.ch -Port 5672
+  Test-NetConnection -ComputerName subdn058.prod.axponet.ch -Port 5672
+  # Shorter version:
+  tnc subdn058.prod.axponet.ch -p 5672
+
+  # Sample output
+ComputerName     : subdn058.prod.axponet.ch
+RemoteAddress    : 10.54.191.95
+RemotePort       : 5672
+InterfaceAlias   : Ethernet
+SourceAddress    : 10.54.187.125
+TcpTestSucceeded : True
+
+```
+
+- Find your public IP address
+```shell
+  (Invoke-RestMethod ipinfo.io/json).ip
 ```
